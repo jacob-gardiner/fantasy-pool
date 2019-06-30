@@ -47,3 +47,7 @@ Build assets
 Serve
 
 `php artisan serve`
+
+## License
+
+Fantasy Pool is open-source software licensed under the [MIT license](https://opensource.org/licenses/MIT).
