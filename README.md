@@ -1,4 +1,8 @@
-## Setup
+# Fantasy Pool
+
+Example Fantasy pool application for reality TV shows
+
+## Setup`
 
 Clone the repository
 
