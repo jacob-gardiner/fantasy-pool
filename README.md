@@ -2,7 +2,7 @@
 
 Example Fantasy pool application for reality TV shows
 
-## Setup`
+## Setup
 
 Clone the repository
 
