@@ -2,7 +2,7 @@
 
 Clone the repository
 
-`git clone git@bitbucket.org:Pempdisimo/fantasy-pool.git`
+`git clone git@github.com:jacob-gardiner/customer-manager.git`
 
 Switch to the repo folder
 

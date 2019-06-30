@@ -1,0 +1,16 @@
+/bootstrap/compiled.php
+.env.*.php
+.env.php
+.env
+/node_modules/
+/storage/
+vendor/composer/autoload_classmap\.php
+
+vendor/composer/autoload_static\.php
+/public/images/
+/public/storage/
+/public/css/
+/public/js/
+/vendor/*
+
+\.idea/
