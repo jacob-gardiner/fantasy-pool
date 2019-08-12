@@ -2,6 +2,11 @@
 
 Example Fantasy pool application for reality TV shows
 
+## Requirements
+
+- PHP >= 7.1.3
+- MySQL
+
 ## Setup
 
 Clone the repository
