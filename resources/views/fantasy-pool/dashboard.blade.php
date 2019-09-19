@@ -71,8 +71,6 @@
                         <div class="flex justify-between items-baseline">
                             <h3 class="card-title text-grey-darkest text-lg md:text-2xl">
                                 <i class="fas fa-clipboard-list text-grey-dark"></i> Available Points
-
-
                             </h3>
                             @if($isOwner)
                                 <a href="{{ route('pool.game-actions', ['pool' => $pool->id]) }}"

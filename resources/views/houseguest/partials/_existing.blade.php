@@ -9,17 +9,23 @@
                 score="{{ $houseguest->score }}"
             ></leaderboard-row>
         @empty
-            <a href="{{ route('fantasy-pool.add_houseguest', ['pool_id' => $pool->id]) }}"
-               class="flex justify-between hover:bg-blue-lightest transition transition-property-all  p-3">
-                <div class="flex justify-around text-xl w-full">
-                    <div class="flex text-grey-dark">
-                        <i class="fas fa-plus-circle text-3xl"></i>
-                        <div class="px-2">
-                            Add Houseguest
+            @if( $isOwner)
+                <a href="{{ route('fantasy-pool.add_houseguest', ['pool_id' => $pool->id]) }}"
+                   class="flex justify-between hover:bg-blue-lightest transition transition-property-all  p-3">
+                    <div class="flex justify-around text-xl w-full">
+                        <div class="flex text-grey-dark">
+                            <i class="fas fa-plus-circle text-3xl"></i>
+                            <div class="px-2">
+                                Add Houseguest
+                            </div>
                         </div>
                     </div>
+                </a>
+            @else
+                <div class="p-3 text-xl text-grey-dark text-center">
+                    No Available Houseguests
                 </div>
-            </a>
+            @endif
         @endforelse
     </div>
 </div>

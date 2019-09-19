@@ -10,9 +10,9 @@
         <i class="fas fa-reply"></i>
         Dashboard
     </a>
-    <div id="admin_show_houseguest" class="card">
+    <div id="admin_show_houseguest" class="card shadow">
 
-        <div class="card-header mb-5 bg-grey-darker pb-0">
+        <div class="card-header mb-12 bg-grey-light border-b-0 pb-0">
             <div class="d-flex justify-content-around">
                 <div class="houseguest-img shadow">
                     <img src="{{ ($player->user->photo) ? route('user.image', [ 'filename' => $player->user->photo ]) : config('app.url') . '/images/placeholders/avatar.png' }}"
