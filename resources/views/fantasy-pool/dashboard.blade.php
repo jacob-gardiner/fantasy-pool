@@ -15,12 +15,8 @@
             <div class="row">
 
                 <div class="w-full md:w-1/2 p-2">
-                    <div class="card  my-2">
+                    <div class="card border-0 shadow my-2">
                         <div class="card-body">
-                            <h3 class="card-title">
-                                <i class="fas fa-user-plus"></i> Invite Users
-                            </h3>
-                            <hr>
                             @include('fantasy-pool.partials._inviteUser')
                         </div>
                     </div>
@@ -32,7 +28,7 @@
 
             {{-- Houseguests --}}
             <div class="p-2 w-full md:w-1/2">
-                <div class="card   ">
+                <div class="card border-0 shadow">
                     <div class="card-body">
                         <div class="flex justify-between items-baseline">
                             <h3 class="card-title text-grey-darkest text-lg md:text-2xl">
@@ -49,7 +45,7 @@
                 </div>
             </div>
             <div class="p-2 w-full md:w-1/2">
-                <div class="card   ">
+                <div class="card border-0 shadow">
 
                     <div class="card-body">
                         <div class="flex justify-between">
@@ -68,8 +64,8 @@
 
         <div class="row">
             {{-- Game Actions --}}
-            <div class="col-12 col-lg-6">
-                <div class="card  my-2">
+            <div class="col-12 col-lg-6 p-2">
+                <div class="card border-0 shadow my-2">
 
                     <div class="card-body">
                         <div class="flex justify-between items-baseline">
