@@ -20,7 +20,7 @@ class AddConstraintsToPlayerPicksTable extends Migration
 
             $table->foreign('pool_id')->references('id')->on('pools');
             $table->foreign('player_id')->references('id')->on('players');
-            $table->foreign('houseguest_id')->references('id')->on('players');
+            $table->foreign('houseguest_id')->references('id')->on('houseguests');
         });
 
     }
