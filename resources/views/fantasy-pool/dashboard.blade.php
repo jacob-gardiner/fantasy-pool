@@ -1,7 +1,15 @@
 @extends('layouts.app')
 
 @section('heading')
-    {{ $pool->name }}
+    @if($isOwner)
+        <a href="{{ route('fantasy-pool.edit', ['fantasyPool' => $pool->id]) }}"
+           title="Edit">
+            <i class="fas fa-edit text-grey-darker"></i>
+            {{ $pool->name }}
+        </a>
+    @else
+        {{ $pool->name }}
+    @endif
 @endsection
 
 

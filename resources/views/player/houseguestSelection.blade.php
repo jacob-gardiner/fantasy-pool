@@ -34,11 +34,15 @@
                     </h3>
 
                     <ul class="list-group">
-                        @foreach($selectedHouseguests as $houseguest)
+                        @forelse($selectedHouseguests as $houseguest)
                             <li class="list-group-item">
                                 {{ $houseguest->name }}
                             </li>
-                        @endforeach
+                        @empty
+                            <li class="list-group-item text-grey-dark">
+                                No Houseguests Selected
+                            </li>
+                        @endforelse
                     </ul>
                 </div>
             </div>
