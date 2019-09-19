@@ -10,7 +10,7 @@ class FantasyPoolObserver
     /**
      * Handle the fantasy pool "created" event.
      *
-     * @param \App\FantasyPool $fantasyPool
+     * @param FantasyPool $fantasyPool
      * @return void
      */
     public function created(FantasyPool $fantasyPool)

@@ -11,7 +11,7 @@ class HouseguestAction extends Model
 
     protected $table = 'houseguest_actions';
 
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne

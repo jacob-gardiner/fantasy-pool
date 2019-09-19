@@ -1,0 +1,16 @@
+.leaderboard-image {
+    position: relative;
+    width: 5rem;
+    height: 5rem;
+    overflow: hidden;
+    border-radius: 50%;
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.card-guest-img {
+    max-height: 10rem;
+}

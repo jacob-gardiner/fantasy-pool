@@ -1,0 +1,10 @@
+.table-link-group {
+    .table-link-header {
+        display: block;
+    }
+
+    .table-link-body {
+        max-height: 25rem;
+        overflow-y: auto;
+    }
+}
