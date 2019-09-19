@@ -1,0 +1,12 @@
+#pool_player_leaderboard {
+    .table-link-group {
+        .table-link-header {
+            display: block;
+        }
+
+        .table-link-body {
+            max-height: 1000rem;
+            overflow-y: auto;
+        }
+    }
+}

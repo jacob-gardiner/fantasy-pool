@@ -10,7 +10,6 @@
                     <div class="">
                         {{ $action->action->name }}
                     </div>
-
                 </div>
                 <div class="text-right mr-3 flex flex-col justify-between ">
 
@@ -23,16 +22,7 @@
                 </div>
                 @if($isOwner)
                     <div class="mx-2">
-
-                        <form action="{{ route('houseguest-actions.destroy', ['houseguest_action' => $action->id]) }}"
-                              method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button class="text-red hover:text-red-light">
-                                <i class="fas fa-trash"></i>
-                            </button>
-                        </form>
-
+                        @include('houseguest.partials._deleteActionForm')
                     </div>
                 @endif
             </div>
@@ -40,12 +30,7 @@
 
         @if(count($houseguest->actions) == 0)
             <div class="flex p-2 justify-center border rounded">
-                <div>No Points.... try harder</div>
-                <div></div>
-                <div></div>
-                @if($isOwner)
-                    <div></div>
-                @endif
+                <div class="text-grey-darker">No Points</div>
             </div>
         @endif
 

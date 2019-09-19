@@ -1,0 +1,15 @@
+#admin_show_houseguest {
+    .houseguest-img {
+        margin-bottom: -4rem;
+        position: relative;
+        width: 10rem;
+        height: 10rem;
+        overflow: hidden;
+        border-radius: 50%;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
