@@ -11,25 +11,30 @@ use Illuminate\Support\Facades\Storage;
 
 class AccountController extends Controller
 {
+    /**
+     * AccountController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function show()
     {
-        $user = auth()->user();
-        return view('auth.account', compact('user'));
+        return view('auth.account', [
+            'user' => auth()->user()
+        ]);
     }
 
     public function update(Request $request)
     {
-        $user = auth()->user();
         $file = $request->file('photo');
 
         Storage::disk('local')->put('public', $file);
-        $user->update([
+        auth()->user()->update([
             'name'  => $request->get('name'),
             'photo' => $file->hashName()
         ]);

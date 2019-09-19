@@ -34,7 +34,7 @@ Route::resource('houseguest', 'HouseguestController')->except(['index', 'destroy
 Route::get('/account', 'Auth\AccountController@show')->name('account');
 Route::post('/account/update', 'Auth\AccountController@update')->name('account.update');
 
-Route::resource('login-as', 'Auth\LoginAsController');
+Route::resource('login-as', 'Auth\LoginAsController')->only(['index', 'show']);
 
 Route::post('/fantasy-pool/{pool}/invite', 'InvitationsController')->name('fantasy-pool.invitePlayer');
 Route::get('/fantasy-pool/{pool}/game-actions', 'GameActionsController@index')->name('pool.game-actions');
