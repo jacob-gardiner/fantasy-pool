@@ -17,7 +17,7 @@ class CreateFantasyPoolTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('show_name')->default('big_brother');
-            $table->string('photo')->nullable();
+            $table->string('photo')->default(config('app.pool_default'));
             $table->integer('owner_id');
             $table->timestamps();
         });
