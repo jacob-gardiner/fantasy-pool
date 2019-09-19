@@ -2,12 +2,11 @@
 
 namespace App\Http\Controllers\auth;
 
-use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class AccountController extends Controller
 {
@@ -20,7 +19,7 @@ class AccountController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @return View
      */
     public function show()
     {
@@ -33,11 +32,17 @@ class AccountController extends Controller
     {
         $file = $request->file('photo');
 
-        Storage::disk('local')->put('public', $file);
-        auth()->user()->update([
-            'name'  => $request->get('name'),
-            'photo' => $file->hashName()
-        ]);
+        if($file) {
+            Storage::disk('local')->put('public', $file);
+            auth()->user()->update([
+                'name'  => $request->get('name'),
+                'photo' => $file->hashName()
+            ]);
+        } else {
+            auth()->user()->update([
+                'name'  => $request->get('name'),
+            ]);
+        }
 
         return back()->with('message', 'Account Updated');
     }
