@@ -1,25 +1,17 @@
-<div class="table-link-group border rounded-lg">
+<div class="table-link-group border rounded-lg overflow-hidden">
     <div class="table-link-body ">
 
         @forelse($houseguests as $houseguest)
-            <a href="{{ route('houseguest.show', ['houseguest' => $houseguest->id]) }}"
-               class="flex justify-between hover:bg-blue-lightest transition transition-property-all p-3">
-                <div class="flex justify-between text-xl w-full">
-                    <div class="leaderboard-image shadow-md ">
-                        <img src="{{ $houseguest->photo }}" alt="" class="rounded   mr-2">
-                    </div>
-                    <div class="flex flex-col justify-center pl-2 flex-1">
-
-                        <div class="flex flex-col justify-around text-xl text-blue-dark font-bold text-right">{{ $houseguest->score }}</div>
-                        <div class="text-base text-right">{{ $houseguest->name }}</div>
-                    </div>
-                </div>
-            </a>
+            <leaderboard-row
+                link="{{ route('houseguest.show', ['houseguest' => $houseguest->id]) }}"
+                photo="{{ $houseguest->photo }}"
+                name="{{ $houseguest->name }}"
+                score="{{ $houseguest->score }}"
+            ></leaderboard-row>
         @empty
             <a href="{{ route('fantasy-pool.add_houseguest', ['pool_id' => $pool->id]) }}"
                class="flex justify-between hover:bg-blue-lightest transition transition-property-all  p-3">
                 <div class="flex justify-around text-xl w-full">
-
                     <div class="flex text-grey-dark">
                         <i class="fas fa-plus-circle text-3xl"></i>
                         <div class="px-2">

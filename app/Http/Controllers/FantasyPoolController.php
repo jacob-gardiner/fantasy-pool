@@ -25,7 +25,7 @@ class FantasyPoolController extends Controller
     public function index()
     {
         return view('fantasy-pool.index', [
-            'pools' => auth()->user()->pools
+            'pools' => auth()->user()->pools->sortByDesc('created_at')
         ]);
     }
 
