@@ -2,37 +2,47 @@
 
 namespace App\Http\Controllers\auth;
 
-use App\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Response;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class AccountController extends Controller
 {
+    /**
+     * AccountController constructor.
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-
+    /**
+     * @return View
+     */
     public function show()
     {
-        $user = auth()->user();
-        return view('auth.account', compact('user'));
+        return view('auth.account', [
+            'user' => auth()->user()
+        ]);
     }
 
     public function update(Request $request)
     {
-        $user = auth()->user();
         $file = $request->file('photo');
 
-        Storage::disk('local')->put('public', $file);
-        $user->update([
-            'name'  => $request->get('name'),
-            'photo' => $file->hashName()
-        ]);
+        if($file) {
+            Storage::disk('local')->put('public', $file);
+            auth()->user()->update([
+                'name'  => $request->get('name'),
+                'photo' => $file->hashName()
+            ]);
+        } else {
+            auth()->user()->update([
+                'name'  => $request->get('name'),
+            ]);
+        }
 
         return back()->with('message', 'Account Updated');
     }

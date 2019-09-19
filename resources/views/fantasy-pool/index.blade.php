@@ -18,9 +18,9 @@
     @endif
 
     @foreach($pools as $pool)
-        <div class="w-full flex justify-center my-2">
+        <div class="w-full flex justify-center my-5">
             <a href="{{ route('fantasy-pool.dashboard', ['pool' => $pool->id]) }}"
-               class="pool-banner flex justify-between hover:bg-blue-lightest transition transition-property-all bg-grey-lightest overflow-hidden rounded border border-blue-darker shadow">
+               class="pool-banner flex justify-between hover:bg-blue-lightest transition transition-property-all bg-grey-lightest overflow-hidden rounded shadow-md">
                 <div class="flex justify-between text-xl w-full">
                     <img src="{{ $pool->photo }}" alt=""
                          class="pools-img shadow-md mr-2 w-1/2 md:w-1/3 h-auto">
@@ -35,7 +35,7 @@
 
     <div class="w-full flex justify-center my-2">
         <a href="{{ route('fantasy-pool.create') }}"
-           class="pool-banner flex justify-between hover:bg-blue-lightest transition transition-property-all bg-white rounded border border-blue-darker shadow p-3">
+           class="pool-banner flex justify-between hover:bg-blue-lightest transition transition-property-all bg-white rounded shadow-md p-3">
             <div class="flex flex-col justify-center h-100 text-center text-grey hover:text-black transition transition-property-all w-full">
                 <i class="fas fa-plus-circle text-5xl"></i>
                 <span class="w-100 text-2xl mt-3">Create Pool</span>

@@ -9,6 +9,7 @@ use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Gate;
+use Illuminate\Validation\UnauthorizedException;
 
 class GameActionsController extends Controller
 {
@@ -18,6 +19,7 @@ class GameActionsController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->authorizeResource(GameAction::class,'action');
     }
 
     /**
@@ -29,11 +31,7 @@ class GameActionsController extends Controller
      */
     public function index(FantasyPool $pool)
     {
-        if (Gate::denies('owns-pool', $pool)) {
-            throw new Exception('Not authorized');
-        }
-
-        return view('pool-actions.index', [
+      return view('pool-actions.index', [
             'actions' => $pool->gameActions,
             'poolId'  => $pool->id
         ]);
@@ -49,7 +47,7 @@ class GameActionsController extends Controller
     public function create(FantasyPool $pool)
     {
         if (Gate::denies('owns-pool', $pool)) {
-            throw new Exception('Not authorized');
+            throw new UnauthorizedException('You are not the owner of this pool');
         }
 
         return view('pool-actions.create', ['pool_id' => $pool->id]);
@@ -65,10 +63,6 @@ class GameActionsController extends Controller
      */
     public function store(GameActionRequest $request, FantasyPool $pool)
     {
-        if (Gate::denies('owns-pool', $pool)) {
-            throw new Exception('Not authorized');
-        }
-
         GameAction::create([
             'name'    => $request->get('name'),
             'score'   => $request->get('score'),
@@ -83,18 +77,13 @@ class GameActionsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param GameAction $poolAction
+     * @param GameAction $action
      * @return Response
-     * @throws Exception
      */
-    public function show(GameAction $poolAction)
+    public function show(GameAction $action)
     {
-        if (Gate::denies('owns-pool', $poolAction->pool)) {
-            throw new Exception('Not authorized');
-        }
-
         return view('pool-actions.show', [
-            'action' => $poolAction
+            'action' => $action
         ]);
     }
 
@@ -108,10 +97,6 @@ class GameActionsController extends Controller
      */
     public function edit(FantasyPool $pool, GameAction $action)
     {
-        if (Gate::denies('owns-pool', $pool)) {
-            throw new Exception('Not authorized');
-        }
-
         return view('pool-actions.edit', [
             'action' => $action,
         ]);
@@ -128,10 +113,6 @@ class GameActionsController extends Controller
      */
     public function update(GameActionRequest $request, FantasyPool $pool, GameAction $action)
     {
-        if (Gate::denies('owns-pool', $pool)) {
-            throw new Exception('Not authorized');
-        }
-
         $action->update([
             'name'  => $request->get('name'),
             'score' => $request->get('score')
@@ -144,15 +125,17 @@ class GameActionsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param GameAction $poolAction
+     * @param GameAction $action
      * @return RedirectResponse
      * @throws Exception
      */
-    public function destroy(GameAction $poolAction)
+    public function destroy(GameAction $action)
     {
-        $poolAction->delete();
+        $action->delete();
 
-        return back()->with([
+        return redirect()->route('pool.game-actions', [
+            'pool' => $action->pool->id
+        ])->with([
             'message' => 'Action Deleted',
             'type'    => 'danger',
         ]);

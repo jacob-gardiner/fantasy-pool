@@ -9,6 +9,14 @@ use Illuminate\Http\Request;
 class AddHouseguestController extends Controller
 {
     /**
+     * AddHouseguestController constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    /**
      * Handle the incoming request.
      *
      * @param \Illuminate\Http\Request $request

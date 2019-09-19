@@ -17,8 +17,8 @@
             <i class="fas fa-pencil-alt"></i> Edit</a>
     @endif
 
-    <div id="admin_show_houseguest" class="card">
-        <div class="card-header mb-5 bg-grey-darker pb-0">
+    <div id="admin_show_houseguest" class="card shadow">
+        <div class="card-header mb-12 bg-grey-light border-b-0 pb-0">
             <div class="d-flex justify-content-around">
                 <div class="houseguest-img shadow-md">
                     <img src="{{ $houseguest->photo }}" alt="" class="rounded">

@@ -4,7 +4,7 @@
     </div>
     <div class="text-xs text-red-darkest w-5/6">
         <strong>Please Note:</strong>
-        No two users are able to have the same three houseguests, only houseguests who remain available will be
-        displayed to you.
+        <p>No two users are able to have the same three houseguests, only houseguests who remain available will be
+            displayed to you.</p>
     </div>
 </div>
