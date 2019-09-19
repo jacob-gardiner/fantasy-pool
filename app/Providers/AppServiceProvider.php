@@ -14,19 +14,35 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     /**
+     * Register Observers
+     */
+    private function registerObservers()
+    {
+        Invitation::observe(InvitationsObserver::class);
+        User::observe(UsersObserver::class);
+        FantasyPool::observe(FantasyPoolObserver::class);
+    }
+
+    /**
+     * Define Gates
+     */
+    private function defineGates()
+    {
+        Gate::define('owns-pool', function($user, $pool) {
+            return $user->id === $pool->owner_id;
+        });
+    }
+
+    /**
      * Bootstrap any application services.
      *
      * @return void
      */
     public function boot()
     {
-        Invitation::observe(InvitationsObserver::class);
-        User::observe(UsersObserver::class);
-        FantasyPool::observe(FantasyPoolObserver::class);
+        $this->registerObservers();
 
-        Gate::define('owns-pool', function($user, $pool) {
-            return $user->id === $pool->owner_id;
-        });
+        $this->defineGates();
     }
 
     /**

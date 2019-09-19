@@ -77,14 +77,13 @@ class GameActionsController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param GameAction $poolAction
+     * @param GameAction $action
      * @return Response
-     * @throws Exception
      */
-    public function show(GameAction $poolAction)
+    public function show(GameAction $action)
     {
         return view('pool-actions.show', [
-            'action' => $poolAction
+            'action' => $action
         ]);
     }
 

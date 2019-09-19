@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\HouseguestAction;
 use App\Http\Requests\HouseguestActions\HouseguestActionRequest;
-use Illuminate\Http\Request;
+use Exception;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
 
 class HouseguestActionsController extends Controller
 {
@@ -19,8 +21,8 @@ class HouseguestActionsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param Request $request
-     * @return \Illuminate\Http\Response
+     * @param HouseguestActionRequest $request
+     * @return Response
      */
     public function store(HouseguestActionRequest $request)
     {
@@ -35,8 +37,8 @@ class HouseguestActionsController extends Controller
 
     /**
      * @param HouseguestAction $houseguestAction
-     * @return \Illuminate\Http\RedirectResponse
-     * @throws \Exception
+     * @return RedirectResponse
+     * @throws Exception
      */
     public function destroy(HouseguestAction $houseguestAction)
     {

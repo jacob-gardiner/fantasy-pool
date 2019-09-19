@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PlayerPick extends Model
 {
-    protected $guarded = [];
+    protected $guarded = ['id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
