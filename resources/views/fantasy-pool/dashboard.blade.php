@@ -14,8 +14,6 @@
             </a>
         @endif
     </div>
-
-
 @endsection
 
 
@@ -72,9 +70,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
 
         <div class="row">
             {{-- Game Actions --}}
@@ -97,9 +93,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
-
 
 @endsection
