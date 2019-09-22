@@ -7,6 +7,7 @@ use App\Helpers\PoolHelpers;
 use App\Player;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Response;
 
 class DashboardController extends Controller
 {
@@ -27,9 +28,9 @@ class DashboardController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param \Illuminate\Http\Request $request
-     * @param FantasyPool              $pool
-     * @return \Illuminate\Http\Response
+     * @param Request     $request
+     * @param FantasyPool $pool
+     * @return Response
      */
     public function __invoke(Request $request, FantasyPool $pool)
     {

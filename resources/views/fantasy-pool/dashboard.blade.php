@@ -1,15 +1,19 @@
 @extends('layouts.app')
 
 @section('heading')
-    @if($isOwner)
-        <a href="{{ route('fantasy-pool.edit', ['fantasyPool' => $pool->id]) }}"
-           title="Edit">
-            <i class="fas fa-edit text-grey-darker"></i>
+    <div class="w-full flex justify-between">
+       <span class="self-center">
             {{ $pool->name }}
-        </a>
-    @else
-        {{ $pool->name }}
-    @endif
+       </span>
+        @if($isOwner)
+            <a href="{{ route('fantasy-pool.edit', ['fantasyPool' => $pool->id]) }}"
+               class="btn bg-grey-light hover:bg-grey text-grey-darkest font-bold shadow"
+               title="Edit">
+                <i class="fas fa-edit text-grey-darker"></i>
+                Edit Pool
+            </a>
+        @endif
+    </div>
 @endsection
 
 
@@ -66,9 +70,7 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
 
         <div class="row">
             {{-- Game Actions --}}
@@ -91,9 +93,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
-
 
 @endsection

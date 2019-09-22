@@ -13,6 +13,7 @@ class InvitationRequest extends FormRequest
      */
     public function authorize()
     {
+        // Todo: Check if the user making the request is the owner of the pool
         return true;
     }
 
@@ -24,7 +25,7 @@ class InvitationRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => 'required'
+            'email' => 'required|email'
         ];
     }
 }

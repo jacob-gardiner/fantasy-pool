@@ -20,7 +20,8 @@ class ExistingHouseguestsController extends Controller
     /**
      * Handle the incoming request.
      *
-     * @param Request $request
+     * @param Request     $request
+     * @param FantasyPool $pool
      * @return Response
      */
     public function __invoke(Request $request, FantasyPool $pool)
