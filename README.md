@@ -11,7 +11,7 @@ Example Fantasy pool application for reality TV shows
 
 Clone the repository
 
-`git clone git@github.com:jacob-gardiner/customer-manager.git`
+`git clone git@github.com:jacob-gardiner/fantasy-pool.git`
 
 Switch to the repo folder
 
